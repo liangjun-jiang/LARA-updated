@@ -683,7 +683,7 @@ public class Analyzer {
 		//analyzer.LoadVocabulary("Data/Seeds/hotel_vocabulary_CHI.dat");
 		analyzer.LoadDirectory("Data/Reviews/", ".dat");
 		//analyzer.LoadReviews("e:/Data/Reviews/Tmp/hotel_111849.dat");
-		analyzer.BootStrapping("Data/Seeds/hotel_bootstrapping_test.dat");
+		analyzer.BootStrapping("Data/Seeds/hotel_bootstrapping.dat");
 		//analyzer.OutputWordListWithInfo("Data/Seeds/hotel_vocabulary_May10.dat");
 		analyzer.Save2Vectors("Data/Vectors/vector_CHI_4000.dat");	
 		//analyzer.SaveVocabulary("Data/Seeds/hotel_vocabulary.dat");
