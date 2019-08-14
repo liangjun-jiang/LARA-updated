@@ -45,7 +45,9 @@ let productMap = {};
 let products = new Map();
 let lastProductName = '';
 readInterface.on('line', (line) => {
-  if (line.indexOf('[title]:') > -1) {
+  if (line.indexOf('[id]:') > -1) {
+    productMap['<Review ID>'] = (""+Math.random()).substring(2,9);
+  } else if (line.indexOf('[title]:') > -1) {
     const title = line.substring('[title]:'.length, line.length);
     productMap['<Title>'] = title;
   } else if (line.indexOf('[productName]:') > -1) {
