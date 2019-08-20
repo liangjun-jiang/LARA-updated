@@ -218,10 +218,14 @@ public class Analyzer {
 			String[] stns, tokens;
 			Span[] stn_spans;
 			int[] ratings = new int[1+ASPECT_SET_NEW.length];
+//			int[] ratings = new int[1];
 			Hotel tHotel = new Hotel(fname);
 			while((tmpTxt=reader.readLine()) != null){
 				if (tmpTxt.startsWith("<Title>"))
-		    		title = tmpTxt.substring("<Title>".length()+1, tmpTxt.length()-1);
+					if ("<Title>".length()+1 < tmpTxt.length()) {
+//						System.out.println("tmpTxt: " + tmpTxt);
+						title = tmpTxt.substring("<Title>".length()+1, tmpTxt.length()-1);
+					}
 				else if (tmpTxt.startsWith("<Overall>")){//only read those aspects
 					try{
 			    		double r = Double.valueOf(tmpTxt.substring("<Overall>".length()));
@@ -678,6 +682,16 @@ public class Analyzer {
 	}
 	
 	static public void main(String[] args){
+//		Analyzer analyzer = new Analyzer("Data/Seeds/amazon_product_bootstrapping.dat", "Data/Seeds/stopwords.dat", 
+//				"Data/Model/NLP/en-sent.zip", "Data/Model/NLP/en-token.zip", "Data/Model/NLP/en-pos-maxent.bin");
+//		analyzer.LoadVocabulary("Data/Seeds/hotel_vocabulary_CHI.dat");
+//		analyzer.LoadDirectory("Data/AmazonReviews/", ".dat");
+		//analyzer.LoadReviews("e:/Data/Reviews/Tmp/hotel_111849.dat");
+//		analyzer.BootStrapping("Data/Seeds/amazon_product_bootstrapping.dat");
+		//analyzer.OutputWordListWithInfo("Data/Seeds/hotel_vocabulary_May10.dat");
+//		analyzer.Save2Vectors("Data/Vectors/vector_amazon_product_CHI_4000.dat");	
+		//analyzer.SaveVocabulary("Data/Seeds/hotel_vocabulary.dat");
+		
 		Analyzer analyzer = new Analyzer("Data/Seeds/hotel_bootstrapping.dat", "Data/Seeds/stopwords.dat", 
 				"Data/Model/NLP/en-sent.zip", "Data/Model/NLP/en-token.zip", "Data/Model/NLP/en-pos-maxent.bin");
 		//analyzer.LoadVocabulary("Data/Seeds/hotel_vocabulary_CHI.dat");
@@ -686,6 +700,6 @@ public class Analyzer {
 		analyzer.BootStrapping("Data/Seeds/hotel_bootstrapping.dat");
 		//analyzer.OutputWordListWithInfo("Data/Seeds/hotel_vocabulary_May10.dat");
 		analyzer.Save2Vectors("Data/Vectors/vector_CHI_4000.dat");	
-		//analyzer.SaveVocabulary("Data/Seeds/hotel_vocabulary.dat");
+
 	}
 }
