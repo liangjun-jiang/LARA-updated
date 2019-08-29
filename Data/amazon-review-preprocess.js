@@ -66,6 +66,11 @@ readInterface.on('line', (line) => {
     const date = line.substring('[createDate]:'.length, line.length);
     productMap['<Date>'] = date;
   }
+
+  productMap['<value for money>'] = 0;
+  productMap['<presentation>'] = 0;
+  productMap['<support>'] = 0;
+  
   
   if (line.indexOf('#####') > -1) {
     if (!products.get(productMap['<Product Name>'])) {

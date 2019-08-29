@@ -34,6 +34,9 @@ import aspectSegmenter.Review.Token;
 public class Analyzer {
 	//this aspect set only exist in the old TripAdvisor reviews
 	public static final String[] ASPECT_SET = {"Value", "Room", "Location", "Cleanliness", "Frontdesk", "Service", "Business Service"};
+	
+	// for amazon product
+//	public static final String[] ASPECT_SET_NEW = {"value for money", "presentation", "support"};
 	//this is the common aspect set in TripAdvisor reviews
 	public static final String[] ASPECT_SET_NEW = {"Value", "Room", "Location", "Cleanliness", "Service"};
 	public static final int ASPECT_COUNT_CUT = 2;
