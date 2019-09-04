@@ -36,9 +36,9 @@ public class Analyzer {
 	public static final String[] ASPECT_SET = {"Value", "Room", "Location", "Cleanliness", "Frontdesk", "Service", "Business Service"};
 	
 	// for amazon product
-//	public static final String[] ASPECT_SET_NEW = {"value for money", "presentation", "support"};
+	public static final String[] ASPECT_SET_NEW = {"value for money", "presentation", "support"};
 	//this is the common aspect set in TripAdvisor reviews
-	public static final String[] ASPECT_SET_NEW = {"Value", "Room", "Location", "Cleanliness", "Service"};
+//	public static final String[] ASPECT_SET_NEW = {"Value", "Room", "Location", "Cleanliness", "Service"};
 	public static final int ASPECT_COUNT_CUT = 2;
 	public static final int ASPECT_CONTENT_CUT = 5;
 	public static final String PUNCT = ":;=+-()[],.\"'";
@@ -685,24 +685,21 @@ public class Analyzer {
 	}
 	
 	static public void main(String[] args){
-//		Analyzer analyzer = new Analyzer("Data/Seeds/amazon_product_bootstrapping.dat", "Data/Seeds/stopwords.dat", 
-//				"Data/Model/NLP/en-sent.zip", "Data/Model/NLP/en-token.zip", "Data/Model/NLP/en-pos-maxent.bin");
-//		analyzer.LoadVocabulary("Data/Seeds/hotel_vocabulary_CHI.dat");
-//		analyzer.LoadDirectory("Data/AmazonReviews/", ".dat");
-		//analyzer.LoadReviews("e:/Data/Reviews/Tmp/hotel_111849.dat");
-//		analyzer.BootStrapping("Data/Seeds/amazon_product_bootstrapping.dat");
-		//analyzer.OutputWordListWithInfo("Data/Seeds/hotel_vocabulary_May10.dat");
-//		analyzer.Save2Vectors("Data/Vectors/vector_amazon_product_CHI_4000.dat");	
-		//analyzer.SaveVocabulary("Data/Seeds/hotel_vocabulary.dat");
-		
-		Analyzer analyzer = new Analyzer("Data/Seeds/hotel_bootstrapping.dat", "Data/Seeds/stopwords.dat", 
+		Analyzer analyzer = new Analyzer("Data/Seeds/amazon_product_bootstrapping.dat", "Data/Seeds/stopwords.dat", 
 				"Data/Model/NLP/en-sent.zip", "Data/Model/NLP/en-token.zip", "Data/Model/NLP/en-pos-maxent.bin");
-		//analyzer.LoadVocabulary("Data/Seeds/hotel_vocabulary_CHI.dat");
-		analyzer.LoadDirectory("Data/Reviews/", ".dat");
-		//analyzer.LoadReviews("e:/Data/Reviews/Tmp/hotel_111849.dat");
-		analyzer.BootStrapping("Data/Seeds/hotel_bootstrapping.dat");
-		//analyzer.OutputWordListWithInfo("Data/Seeds/hotel_vocabulary_May10.dat");
-		analyzer.Save2Vectors("Data/Vectors/vector_CHI_4000.dat");	
+		analyzer.LoadVocabulary("Data/Seeds/hotel_vocabulary_CHI.dat");
+		analyzer.LoadDirectory("Data/AmazonReviews/", ".dat");
+		analyzer.BootStrapping("Data/Seeds/amazon_product_bootstrapping.dat");
+		analyzer.Save2Vectors("Data/Vectors/vector_amazon_product_CHI_4000.dat");	
+		
+//		Analyzer analyzer = new Analyzer("Data/Seeds/hotel_bootstrapping.dat", "Data/Seeds/stopwords.dat", 
+//				"Data/Model/NLP/en-sent.zip", "Data/Model/NLP/en-token.zip", "Data/Model/NLP/en-pos-maxent.bin");
+//		//analyzer.LoadVocabulary("Data/Seeds/hotel_vocabulary_CHI.dat");
+//		analyzer.LoadDirectory("Data/Reviews/", ".dat");
+//		//analyzer.LoadReviews("e:/Data/Reviews/Tmp/hotel_111849.dat");
+//		analyzer.BootStrapping("Data/Seeds/hotel_bootstrapping.dat");
+//		//analyzer.OutputWordListWithInfo("Data/Seeds/hotel_vocabulary_May10.dat");
+//		analyzer.Save2Vectors("Data/Vectors/vector_CHI_4000.dat");	
 
 	}
 }
