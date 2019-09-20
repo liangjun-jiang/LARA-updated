@@ -224,11 +224,12 @@ public class Analyzer {
 //			int[] ratings = new int[1];
 			Hotel tHotel = new Hotel(fname);
 			while((tmpTxt=reader.readLine()) != null){
-				if (tmpTxt.startsWith("<Title>"))
+				if (tmpTxt.startsWith("<Title>")) {
 					if ("<Title>".length()+1 < tmpTxt.length()) {
 //						System.out.println("tmpTxt: " + tmpTxt);
 						title = tmpTxt.substring("<Title>".length()+1, tmpTxt.length()-1);
 					}
+				}
 				else if (tmpTxt.startsWith("<Overall>")){//only read those aspects
 					try{
 			    		double r = Double.valueOf(tmpTxt.substring("<Overall>".length()));
@@ -239,16 +240,23 @@ public class Analyzer {
 						return;
 					}
 		    	}
-		    	else if (tmpTxt.startsWith("<Value>"))
-		    		ratings[1] = Integer.valueOf(tmpTxt.substring("<Value>".length()));
-		    	else if (tmpTxt.startsWith("<Rooms>"))
-		    		ratings[2] = Integer.valueOf(tmpTxt.substring("<Rooms>".length()));
-		    	else if (tmpTxt.startsWith("<Location>"))
-		    		ratings[3] = Integer.valueOf(tmpTxt.substring("<Location>".length()));
-		    	else if (tmpTxt.startsWith("<Cleanliness>"))
-		    		ratings[4] = Integer.valueOf(tmpTxt.substring("<Cleanliness>".length()));
-		    	else if (tmpTxt.startsWith("<Service>"))
-		    		ratings[5] = Integer.valueOf(tmpTxt.substring("<Service>".length()));
+				else if (tmpTxt.startsWith("<value for money>"))
+		    		ratings[1] = Integer.valueOf(tmpTxt.substring("<value for money>".length()));
+		    	else if (tmpTxt.startsWith("<presentation>"))
+		    		ratings[2] = Integer.valueOf(tmpTxt.substring("<presentation>".length()));
+		    	else if (tmpTxt.startsWith("<support>"))
+		    		ratings[3] = Integer.valueOf(tmpTxt.substring("<support>".length()));
+		    	
+//		    	else if (tmpTxt.startsWith("<Value>"))
+//		    		ratings[1] = Integer.valueOf(tmpTxt.substring("<Value>".length()));
+//		    	else if (tmpTxt.startsWith("<Rooms>"))
+//		    		ratings[2] = Integer.valueOf(tmpTxt.substring("<Rooms>".length()));
+//		    	else if (tmpTxt.startsWith("<Location>"))
+//		    		ratings[3] = Integer.valueOf(tmpTxt.substring("<Location>".length()));
+//		    	else if (tmpTxt.startsWith("<Cleanliness>"))
+//		    		ratings[4] = Integer.valueOf(tmpTxt.substring("<Cleanliness>".length()));
+//		    	else if (tmpTxt.startsWith("<Service>"))
+//		    		ratings[5] = Integer.valueOf(tmpTxt.substring("<Service>".length()));
 				else if (tmpTxt.startsWith("<Content>"))
 					content = cleanReview(tmpTxt.substring("<Content>".length()));
 				else if (tmpTxt.isEmpty() && content != null){

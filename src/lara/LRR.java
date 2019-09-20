@@ -440,9 +440,14 @@ public class LRR extends RatingRegression {
 	}
 	
 	public static void main(String[] args) {
+//		LRR model = new LRR(500, 1e-2, 5000, 1e-2, 2.0, "Data/Model/model_base_hotel.dat");//
+//		model.EM_est("Data/Vectors/Vector_CHI_4000.dat", 10, 1e-4);
+//		model.SavePrediction("Data/Results/prediction.dat");
+//		model.SaveModel("Data/Model/model_hotel.dat");
+		
 		LRR model = new LRR(500, 1e-2, 5000, 1e-2, 2.0, "Data/Model/model_base_hotel.dat");//
-		model.EM_est("Data/Vectors/Vector_CHI_4000.dat", 10, 1e-4);
-		model.SavePrediction("Data/Results/prediction.dat");
-		model.SaveModel("Data/Model/model_hotel.dat");
+		model.EM_est("Data/Vectors/vector_amazon_product_CHI_4000.dat", 10, 1e-4);
+		model.SavePrediction("Data/Results/amazon_product_prediction.dat");
+		model.SaveModel("Data/Model/amazon_product_model.dat");
 	}
 }
